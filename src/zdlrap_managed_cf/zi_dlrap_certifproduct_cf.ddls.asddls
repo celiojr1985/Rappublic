@@ -19,6 +19,7 @@ define root view entity ZI_DLRAP_CERTIFPRODUCT_CF
       CertTuev,
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       LocalLastChangedAt,
+      'sap-icon://BusinessSuiteInAppSymbols/icon-alert-groups' as IconHeader,
         
       _Prod,
       _Stats

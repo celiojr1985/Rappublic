@@ -1,5 +1,5 @@
 @EndUserText.label: 'Consumptions - Status'
-@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
 define view entity ZC_DLRAP_CERTIF_ST_CF
   as projection on ZI_DLRAP_CERTIF_ST_CF
 {
@@ -12,7 +12,8 @@ define view entity ZC_DLRAP_CERTIF_ST_CF
       StatusOld,
       LastChangedBy,
       LastChangedAt,
-      LocalLastChangedAt,
+      LocalLastChangedAt,           
+      Icon,
       /* Associations */
       _Certif : redirected to parent ZC_DLRAP_CERTIFPRODUCT_CF
 

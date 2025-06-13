@@ -1,0 +1,90 @@
+@Metadata.layer: #CORE
+
+@UI: {
+
+headerInfo: {
+    typeName: 'Detalhe do Status',
+    typeNamePlural: 'Detalhe do Status',
+    typeImageUrl: 'Icon',
+    title: {
+                type: #STANDARD,
+
+                label: 'Descrição',
+                value: 'Description'
+    }
+
+}
+
+}
+
+
+annotate entity ZC_DLRAP_CERTIF_ST_CF with
+{
+
+  @UI.facet: [
+
+
+              {
+
+          purpose: #HEADER,
+          type: #FIELDGROUP_REFERENCE,
+          importance: #HIGH,
+          position: 1,
+          label: 'Produto',
+          targetQualifier: 'HeaderData' },
+
+        {
+            id: 'Certificate',
+            purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Detalhes do Certificado',
+            position: 10
+          },
+
+                  {
+
+                    id: 'Status',
+                    purpose: #STANDARD,
+                    type:  #FIELDGROUP_REFERENCE,
+                    position: 20,
+                      targetQualifier: 'Detail',
+                      label: 'Histórico de alterações'
+                   }
+
+
+
+
+             ]
+
+
+  @UI.hidden: true
+  @UI.identification: [{ position: 10 }]
+  StateUuid;
+
+  //@UI.hidden: true
+  @EndUserText.label: 'Produto'
+  @UI.identification: [{ position: 20 }]
+  @UI.fieldGroup: [{ qualifier: 'HeaderData'  }]
+  Matnr;
+
+
+  @EndUserText.label: 'Versão'
+  @UI.lineItem: [ { position: 10   }]
+  @UI.identification: [{ position: 30 }]
+  Version;
+
+  @EndUserText.label: 'Status Atual'
+  @UI.lineItem: [ { position: 20   }]
+  @UI.fieldGroup: [{ qualifier: 'Detail'  }]
+  @UI.identification: [{ position: 40 }]
+  Status;
+
+
+  @EndUserText.label: 'Status Antigo'
+  @UI.lineItem: [ { position: 30   }]
+  @UI.fieldGroup: [{ qualifier: 'Detail'  }]
+  @UI.identification: [{ position: 50 }]
+  StatusOld;
+
+
+}

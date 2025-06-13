@@ -1,0 +1,5 @@
+@EndUserText.label: 'UI - Certificados'
+define service ZUI_DLRAP_CERTIF_CF {
+  expose ZC_DLRAP_CERTIFPRODUCT_CF;
+  expose ZC_DLRAP_CERTIF_ST_CF;
+}

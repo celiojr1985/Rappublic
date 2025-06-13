@@ -23,6 +23,7 @@ define view entity ZI_DLRAP_CERTIF_ST_CF
       LastChangedAt,
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       LocalLastChangedAt, 
+      'sap-icon://BusinessSuiteInAppSymbols/icon-function-hierarchy' as Icon,
       
       _Certif
 }

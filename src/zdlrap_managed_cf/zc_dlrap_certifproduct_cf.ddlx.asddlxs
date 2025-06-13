@@ -1,0 +1,121 @@
+@Metadata.layer: #CORE
+
+
+//Cabeçalho da segunda tela 
+@UI: { headerInfo:
+            {
+                //Descrição da tela facet
+                typeName: 'Certificado',
+                //Descrição do 'ALV'
+                typeNamePlural: 'Certificados',
+                typeImageUrl: 'IconHeader',
+
+                title: { label: 'Certificado', value: 'Description' }
+             }
+ }
+
+
+annotate entity ZC_DLRAP_CERTIFPRODUCT_CF with
+{
+
+
+    //Monta tela do facet ( segunda tela )
+    
+        @UI.facet: [
+        
+            {
+            
+            purpose: #HEADER,
+            type: #FIELDGROUP_REFERENCE,
+            importance: #HIGH,
+            position: 1,
+            label: 'Informações Técnicas',
+            targetQualifier: 'HeaderData' },
+            
+            { 
+              id: 'Certificate',
+              purpose: #STANDARD,
+              type: #IDENTIFICATION_REFERENCE,
+              label: 'Gerenciamento do Certificado',
+              position: 10            
+            },
+            
+            {
+                purpose: #STANDARD,
+                type: #FIELDGROUP_REFERENCE,
+                importance: #HIGH,
+                position: 20,
+                targetQualifier: 'Detail',
+                label: 'Detalhes'              
+            },
+            
+            
+            {
+              id: 'CertificateState',
+              purpose: #STANDARD,
+              type: #LINEITEM_REFERENCE,
+              label: 'Modificações de Status',
+              position: 30,
+              targetElement: '_Stats'           
+            
+            }
+            
+            
+            
+            
+            
+            ]            
+
+
+
+  //Marca a coluna como Filtro
+  @UI.selectionField: [{ position: 10 }]
+
+  //Adiciona a label na tela
+  @EndUserText.label: 'Certificado'
+
+  //Adiociona na lista da tabela
+  @UI.lineItem: [{ position: 10  }]
+  //Esconde o campo
+  @UI.hidden: true
+  CertUuid;
+
+  @UI.selectionField: [{ position: 20 }]
+  
+  //Associa o campo para o facet
+  @UI.identification: [{ position: 20 }]
+    
+  @EndUserText.label: 'Produto'
+  @UI.lineItem: [{ position: 20  }]
+  Matnr;
+
+  @UI.selectionField: [{ position: 30 }]
+  @EndUserText.label: 'Descrição'
+  @UI.lineItem: [{ position: 30  }]
+  @UI.fieldGroup: [{ qualifier: 'Detail'  }]
+  Description;
+    
+  //Associa o campo para o facet
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Versão' 
+  @UI.fieldGroup: [{ qualifier: 'HeaderData'  }]
+  Version;
+  
+  @UI.identification: [{ position: 40 }]
+  @EndUserText.label: 'Certificado FCC' 
+  CertFcc;
+  
+  @UI.identification: [{ position: 50 }]
+  @EndUserText.label: 'Certificado CE' 
+  CertCe;
+  
+  @UI.identification: [{ position: 60 }]
+  @EndUserText.label: 'Certificado GS' 
+  CertGs;
+  
+  @UI.identification: [{ position: 70 }]
+  @EndUserText.label: 'Certificado ISO' 
+  CertIso;
+    
+    
+}
