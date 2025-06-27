@@ -63,14 +63,14 @@ annotate entity ZC_DLRAP_CERTIF_ST_CF with
 
   //@UI.hidden: true
   @EndUserText.label: 'Produto'
-  @UI.identification: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }, { type: #FOR_ACTION, dataAction: 'NewVersion', label: 'Nova Versão' } ]
   @UI.fieldGroup: [{ qualifier: 'HeaderData'  }]
   Matnr;
 
 
   @EndUserText.label: 'Versão'
   @UI.lineItem: [ { position: 10   }]
-  @UI.identification: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }, { type: #FOR_ACTION, dataAction: 'NewVersion', label: 'Nova Versão' } ]
   Version;
 
   @EndUserText.label: 'Status Atual'
@@ -86,5 +86,16 @@ annotate entity ZC_DLRAP_CERTIF_ST_CF with
   @UI.identification: [{ position: 50 }]
   StatusOld;
 
+  @EndUserText.label: 'Last Changed By'
+  @UI.lineItem: [ { position: 40   }]
+  @UI.fieldGroup: [{ qualifier: 'Detail'  }]
+  @UI.identification: [{ position: 60 }]
+  LastChangedBy;
+  
+  @EndUserText.label: 'Last Changed At'
+  @UI.lineItem: [ { position: 50   }]
+  @UI.fieldGroup: [{ qualifier: 'Detail'  }]
+  @UI.identification: [{ position: 70 }]
+  LastChangedAt;
 
 }

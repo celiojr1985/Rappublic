@@ -1,0 +1,93 @@
+managed implementation in class zbp_i_dlrap_certifproduct_cf unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_DLRAP_CERTIFPRODUCT_CF alias Certificate
+persistent table zdlrap_certifcf
+lock master total etag LocalLastChangedAt
+draft table zbdlrap_certifcf
+authorization master ( instance )
+
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  association _Stats { create; with draft; }
+
+  draft action Edit;
+  draft action Resume;
+  draft action Activate;
+  draft action Discard;
+  draft determine action Prepare;
+
+  determination setInitialValues on modify { create; }
+
+  determination setProductName on modify { field matnr; create; update; }
+
+  validation checkMaterial on save { field matnr; create; update; }
+
+  action ( features : instance ) UpdateProductName result [1] $self;
+  action ( features : instance ) NewVersion result [1] $self;
+  action ( features : instance ) ActiveVersion result [1] $self;
+  action ( features : instance ) InactiveVersion result [1] $self;
+
+
+  side effects {
+    action UpdateProductName affects field Matnr, field Description, $self;
+  }
+
+
+
+  field ( numbering : managed, readonly ) CertUuid;
+  field ( readonly ) Description;
+  field ( mandatory ) Matnr;
+  field ( readonly ) Version;
+  field ( readonly ) CertStatus;
+
+  mapping for zdlrap_certifcf
+    {
+      Matnr              = matnr;
+      CertUuid           = cert_uuid;
+      Version            = version;
+      CertStatus         = cert_status;
+      CertCe             = cert_ce;
+      CertGs             = cert_gs;
+      CertFcc            = cert_fcc;
+      CertIso            = cert_iso;
+      CertTuev           = cert_tuev;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+
+
+
+}
+
+define behavior for ZI_DLRAP_CERTIF_ST_CF alias CertificateST
+persistent table zdlrap_cer_st_cf
+lock dependent by _Certif
+draft table zbdlrap_cer_stcf
+authorization dependent by _Certif
+//etag master <field_name>
+{
+  //  update;
+  delete;
+  field ( readonly ) CertUuid;
+  field ( numbering : managed, readonly ) StateUuid;
+  association _Certif;
+
+  mapping for zdlrap_cer_st_cf
+    {
+      StateUuid          = state_uuid;
+      CertUuid           = cert_uuid;
+      Matnr              = matnr;
+      Version            = version;
+      Status             = status;
+      StatusOld          = status_old;
+      LastChangedBy      = last_changed_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+
+}

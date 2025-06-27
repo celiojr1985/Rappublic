@@ -8,6 +8,7 @@ define root view entity ZI_DLRAP_CERTIFPRODUCT_CF
 
 {
   key CertUuid,
+          
       Matnr,
       _Prod.Description,
       Version,

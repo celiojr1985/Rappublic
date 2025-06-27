@@ -7,6 +7,7 @@
     sizeCategory: #S,
     dataClass: #MIXED
 }
+@Metadata.allowExtensions: true
 define view entity ZI_DLRAP_PROD_CF
   as select from zdlrap_prod_cf
 {
@@ -14,3 +15,5 @@ define view entity ZI_DLRAP_PROD_CF
   key language    as Language,
       description as Description
 }
+
+where language = $session.system_language   

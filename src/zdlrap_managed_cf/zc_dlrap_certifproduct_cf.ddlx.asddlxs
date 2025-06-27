@@ -83,11 +83,22 @@ annotate entity ZC_DLRAP_CERTIFPRODUCT_CF with
   @UI.selectionField: [{ position: 20 }]
   
   //Associa o campo para o facet
-  @UI.identification: [{ position: 20 }]
+  @UI.identification: [{ position: 20 },
+                       { type: #FOR_ACTION, dataAction: 'NewVersion', label: 'Nova Versão' },
+                       { type: #FOR_ACTION, dataAction: 'ActiveVersion', label: 'Ativar Versão' },
+                       { type: #FOR_ACTION, dataAction: 'InactiveVersion', label: 'Inativar Versão' } ]
     
   @EndUserText.label: 'Produto'
-  @UI.lineItem: [{ position: 20  }]
+  @UI.lineItem: [{ position: 20  },
+                 { type: #FOR_ACTION, dataAction: 'NewVersion', label: 'Nova Versão' } ]  
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_DLRAP_PROD_CF', element: 'Matnr' } }]  
   Matnr;
+  
+  @UI.selectionField: [{ position: 21 }]
+  @EndUserText.label: 'Status Certificado'
+  @UI.lineItem: [{ position: 21  }]
+  @UI.fieldGroup: [{ qualifier: 'Detail'  }]
+  CertStatus;
 
   @UI.selectionField: [{ position: 30 }]
   @EndUserText.label: 'Descrição'

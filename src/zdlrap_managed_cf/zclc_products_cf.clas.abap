@@ -20,14 +20,14 @@ CLASS zclc_products_cf IMPLEMENTATION.
 
 
     data(lt_prd) = value tt_prd(
-        ( MATNR = 1 DESCRIPTION = 'Celular' language = 'P' )
-        ( MATNR = 3 DESCRIPTION = 'Capinha' language = 'P' )
-        ( MATNR = 2 DESCRIPTION = 'Televisao' language = 'P' )
-        ( MATNR = 4 DESCRIPTION = 'Garrafa'  language = 'P' )
-        ( MATNR = 1 DESCRIPTION = 'Celular' language = 'E' )
-        ( MATNR = 3 DESCRIPTION = 'Capinha' language = 'E' )
-        ( MATNR = 2 DESCRIPTION = 'Televisao' language = 'E' )
-        ( MATNR = 4 DESCRIPTION = 'Garrafa'  language = 'E' )
+        ( MATNR = '000000001000000001'                       DESCRIPTION = 'Celular' language = 'P' )
+        ( MATNR = '000000001000000002'                       DESCRIPTION = 'Capinha' language = 'P' )
+        ( MATNR = '000000001000000003'                       DESCRIPTION = 'Televisao' language = 'P' )
+        ( MATNR = '000000001000000004'                       DESCRIPTION = 'Garrafa'  language = 'P' )
+        ( MATNR = '000000001000000001'                       DESCRIPTION = 'Celular' language = 'E' )
+        ( MATNR = '000000001000000002'                       DESCRIPTION = 'Capinha' language = 'E' )
+        ( MATNR = '000000001000000003'                       DESCRIPTION = 'Televisao' language = 'E' )
+        ( MATNR = '000000001000000004'                      DESCRIPTION = 'Garrafa'  language = 'E' )
 
          ) .
 
