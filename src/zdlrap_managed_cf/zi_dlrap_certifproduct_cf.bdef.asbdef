@@ -1,5 +1,5 @@
 managed implementation in class zbp_i_dlrap_certifproduct_cf unique;
-strict ( 2 );
+strict ( 1 );
 with draft;
 
 define behavior for ZI_DLRAP_CERTIFPRODUCT_CF alias Certificate
